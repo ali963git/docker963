@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -Eeuo pipefail
 
-[ -f versions.json ] # run "versions.sh" first
+[ -f versions.json ] || { echo >&2 "error: versions.json not found; run 'versions.sh' first"; exit 1; }
 
 jqt='.jq-template.awk'
 if [ -n "${BASHBREW_SCRIPTS:-}" ]; then
